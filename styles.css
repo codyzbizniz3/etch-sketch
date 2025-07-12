@@ -20,10 +20,12 @@ div {
 }
 
 .grid-box {
+
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    width: calc(100% / 16);
-    height: calc(100% / 16)
+    width: calc(100% / var(--grid-columns));
+    height: calc(100% / var(--grid-columns));
+    margin: 0;
 }
