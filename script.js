@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById("container");
-
-
+    let isDrawing = false;
 
     let userNum = prompt("Enter number of squares per side.");
 
@@ -28,7 +27,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     createGrid(userNum);
-})
+
+    container.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        if (e.target.classList.contains('grid-box')) {
+            e.target.style.backgroundColor = 'black';
+        }
+        e.preventDefault();
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDrawing) return;
+
+        if (e.target.classList.contains('grid-box')) {
+            e.target.style.backgroundColor = 'black';
+        }
+    });
+
+    document.body.addEventListener('mouseup', (e) => {
+        isDrawing = false;
+    })
+
+    document.createElement('button');
+    document.appendChild('button');
+});
 
 
 
