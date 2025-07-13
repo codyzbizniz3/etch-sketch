@@ -56,5 +56,35 @@ body {
 #pop-up {
     border: 1px solid red;
     height: 200px;
-    width: 500px;
+    width: 700px;
+    padding: 20px;
+}
+
+#pop-up-content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#banner {
+    margin: auto;
+
+}
+
+#heading-one {
+    margin: auto;
+    padding: 10px;
+}
+
+#heading-two {
+    margin: auto;
+    padding: 10px;
+}
+
+input {
+    display: flex;
+    margin: auto;
+    width: 20%;
+    height: 20px;
+    padding: 10px;
 }
