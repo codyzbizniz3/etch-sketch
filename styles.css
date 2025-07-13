@@ -6,21 +6,28 @@
     padding: 0;
 }
 
-div {
+body {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    min-height: 100vh;
+}
+
+#container {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border: 5px solid black;
     width: 80vw;
     height: 80vw;
     max-width: 800px;
     max-height: 800px;
-    padding: 0;
-    margin: 20px;
+    padding: 10px;
+    margin: auto;
+
 }
 
 .grid-box {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,4 +35,26 @@ div {
     width: calc(100% / var(--grid-columns));
     height: calc(100% / var(--grid-columns));
     margin: 0;
+}
+
+#change-grid {
+    display: flex;
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 5px;
+
+}
+
+#shake-btn {
+    display: flex;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+
+}
+
+#pop-up {
+    border: 1px solid red;
+    height: 200px;
+    width: 500px;
 }
