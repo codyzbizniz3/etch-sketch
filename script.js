@@ -20,9 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
             gridBox.classList.add("grid-box");
             container.appendChild(gridBox);
 
-        }
-
-    }
+        };
+    };
     createGrid(defaultGrid);
 
 
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         popUp.style.display = "none";
         inputField.value = "";
 
-    }
+    };
 
     cancelBtn.addEventListener('click', closePopUp);
 
@@ -57,9 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-
-
-
     container.addEventListener('mousedown', (e) => {
         isDrawing = true;
         if (e.target.classList.contains('grid-box')) {
@@ -73,14 +69,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (e.target.classList.contains('grid-box')) {
             e.target.style.backgroundColor = 'black';
-        }
+        };
     });
 
     document.body.addEventListener('mouseup', (e) => {
         isDrawing = false;
-    })
+    });
+
+    shakeBtn.addEventListener('click', (e) => {
+        const gridBoxes = document.querySelectorAll('.grid-box');
+        gridBoxes.forEach(box => {
+            box.style.backgroundColor = 'white';
+        })
+    });
 });
-
-
-
-
