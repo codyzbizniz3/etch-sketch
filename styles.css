@@ -35,6 +35,7 @@ body {
     width: calc(100% / var(--grid-columns));
     height: calc(100% / var(--grid-columns));
     margin: 0;
+    opacity: 1;
 }
 
 #change-grid {
