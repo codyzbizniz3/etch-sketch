@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < totalSquares; i++) {
             const gridBox = document.createElement("div");
             gridBox.classList.add("grid-box");
+            gridBox.dataset.darkness = 0;
             container.appendChild(gridBox);
 
         };
@@ -55,11 +56,21 @@ document.addEventListener('DOMContentLoaded', function () {
         closePopUp();
     });
 
+    function darkenSquare(target) {
+        let currentDarkness = parseInt(target.dataset.darkness);
+        if (currentDarkness < 10) {
+            currentDarkness++;
+            target.dataset.darkness = currentDarkness;
+            let colorValue = 255 - (currentDarkness * 25.5);
+            target.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+
+        }
+    }
 
     container.addEventListener('mousedown', (e) => {
         isDrawing = true;
         if (e.target.classList.contains('grid-box')) {
-            e.target.style.backgroundColor = 'black';
+            darkenSquare(e.target);
         }
         e.preventDefault();
     });
@@ -68,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isDrawing) return;
 
         if (e.target.classList.contains('grid-box')) {
-            e.target.style.backgroundColor = 'black';
+            darkenSquare(e.target);
         };
     });
 
@@ -79,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     shakeBtn.addEventListener('click', (e) => {
         const gridBoxes = document.querySelectorAll('.grid-box');
         gridBoxes.forEach(box => {
-            box.style.backgroundColor = 'white';
+            box.style.backgroundColor = 'rgb(255, 255, 255)';
+            box.dataset.darkness = 0;
         })
     });
 });
