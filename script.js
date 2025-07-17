@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.getElementById("cancel-btn");
     const submitBtn = document.getElementById("submit-btn");
     const inputField = document.getElementById("input-field");
+    const rainbowBtn = document.getElementById("rainbow-btn");
     let isDrawing = false;
-    defaultGrid = 57;
+    let isRainbowMode = false;
+    let defaultGrid = 100;
 
     function createGrid(num) {
         container.innerHTML = '';
@@ -25,7 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     createGrid(defaultGrid);
 
+    function rainbowMode() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
+    rainbowBtn.addEventListener('click', () => {
+        isRainbowMode = !isRainbowMode;
+
+        if (isRainbowMode) {
+            rainbowBtn.textContent = "Normal Mode";
+        } else {
+            rainbowBtn.textContent = "Rainbow Mode"
+        }
+    })
 
     changeGridBtn.addEventListener('click', (e) => {
         overlay.style.display = "block";
@@ -70,7 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
     container.addEventListener('mousedown', (e) => {
         isDrawing = true;
         if (e.target.classList.contains('grid-box')) {
-            darkenSquare(e.target);
+
+            if (isRainbowMode) {
+                e.target.style.backgroundColor = rainbowMode();
+                e.target.dataset.darkness = 0;
+            } else {
+                darkenSquare(e.target);
+            }
         }
         e.preventDefault();
     });
@@ -79,7 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isDrawing) return;
 
         if (e.target.classList.contains('grid-box')) {
-            darkenSquare(e.target);
+
+            if (isRainbowMode) {
+                e.target.style.backgroundColor = rainbowMode();
+                e.target.dataset.darkness = 0;
+            } else {
+                darkenSquare(e.target);
+            }
+
         };
     });
 

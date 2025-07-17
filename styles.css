@@ -14,6 +14,18 @@ body {
 
 }
 
+#buttons {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    width: 80vw;
+}
+
+.button {
+    padding: 5px;
+}
+
 #container {
     box-sizing: border-box;
     display: flex;
@@ -32,27 +44,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     width: calc(100% / var(--grid-columns));
     height: calc(100% / var(--grid-columns));
     margin: 0;
     background-color: rgb(255, 255, 255);
-}
-
-#change-grid {
-    display: flex;
-    margin: auto;
-    margin-bottom: 5px;
-    padding: 5px;
-
-}
-
-#shake-btn {
-    display: flex;
-    margin: auto;
-    margin-top: 5px;
-    padding: 5px;
-
 }
 
 #pop-up-overlay {
